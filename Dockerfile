@@ -17,6 +17,8 @@ RUN  python3 -m ensurepip && \
      pip3 --no-cache-dir install --upgrade pip setuptools && \
      pip3 --no-cache-dir install ".[server]"
 
+RUN sed -i 's/0[.]001/0.01/' /usr/lib/python3.6/site-packages/moto/sqs/models.py
+
 ENTRYPOINT ["/usr/bin/moto_server", "-H", "0.0.0.0"]
 
 EXPOSE 5000
