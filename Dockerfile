@@ -14,7 +14,6 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /moto/
 RUN  python3 -m ensurepip && \
      rm -r /usr/lib/python*/ensurepip && \
-     pip3 install pip==18.1 && \
      pip3 --no-cache-dir install --upgrade pip setuptools && \
      pip3 --no-cache-dir install ".[server]"
 
